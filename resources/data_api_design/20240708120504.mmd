@@ -1,0 +1,25 @@
+
+classDiagram
+    class Game {
+        -board: list[list[str]]
+        -current_turn: str
+        +__init__()
+        +make_move(row: int, col: int) bool
+        +check_winner() str
+        +is_draw() bool
+        +reset_game()
+    }
+    class UI {
+        -game: Game
+        +__init__(game: Game)
+        +draw_board()
+        +update_display()
+        +handle_click(position: tuple[int, int])
+        +show_message(message: str)
+    }
+    class Main {
+        -ui: UI
+        +main()
+    }
+    Main --> UI
+    UI --> Game

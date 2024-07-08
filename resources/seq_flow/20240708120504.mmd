@@ -1,0 +1,18 @@
+
+sequenceDiagram
+    participant M as Main
+    participant U as UI
+    participant G as Game
+    M->>U: __init__(game)
+    U->>G: __init__()
+    M->>M: main()
+    M->>U: draw_board()
+    U->>G: make_move(row, col)
+    G-->>U: return bool
+    U->>G: check_winner()
+    G-->>U: return str
+    U->>G: is_draw()
+    G-->>U: return bool
+    U->>U: update_display()
+    U->>U: show_message(message)
+    U->>G: reset_game()
